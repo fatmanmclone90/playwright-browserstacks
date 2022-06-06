@@ -1,0 +1,21 @@
+{
+  "name": "playwrightpoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tests:parrell": "npx playwright test --workers 2",
+    "tests": "npx playwright test -g --headed",
+    "tests:browserstack":  "npx playwright test --config=./playwright.config.ts",
+    "test:local": "BROWSERSTACK_LOCAL=true npx playwright test --config=./playwright-local.config.js"
+  },
+  "author": "Patrick Hendron",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.22.2"
+  },
+  "dependencies": {
+    "browserstack-local": "^1.5.1",
+    "translate": "^1.4.1"
+  }
+}

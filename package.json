@@ -4,11 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tests:parrell": "npx playwright test --workers 2",
-    "tests": "npx playwright test --headed",
-    "tests:browserstack": "npx playwright test --config=./playwright.config.ts",
-    "test:local": "BROWSERSTACK_LOCAL=true npx playwright test --config=./playwright-local.config.js",
-    "tests:updatesnapshot": "npx playwright test --update-snapshots"
+    "test": "npx playwright test --config=./playwright.config.ts --workers 1"
   },
   "author": "Patrick Hendron",
   "license": "ISC",
@@ -19,12 +15,7 @@
   },
   "dependencies": {
     "browserstack-local": "^1.5.1",
-    "chai": "^4.3.6",
     "dotenv": "^16.0.1",
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7",
-    "playwright": "^1.22.2",
-    "translate": "^1.4.1",
-    "v8-to-istanbul": "^9.0.0"
+    "playwright": "^1.22.2"
   }
 }

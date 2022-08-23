@@ -46,10 +46,18 @@ const config: PlaywrightTestConfig = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'edge@90:Windows 10@browserstack',
+      name: 'chrome@latest:Windows 1@browserstack',
       use: {
-        browserName: 'chromium'
-      }
+        browserName: 'chromium',
+        channel: 'chrome'
+      },
+    },
+    {
+      name: 'chrome@latest:OSX Big Sur@browserstack',
+      use: {
+        browserName: 'chromium',
+        channel: 'chrome',
+      },
     }
   ],
 

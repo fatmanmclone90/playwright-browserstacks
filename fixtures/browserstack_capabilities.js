@@ -5,8 +5,8 @@ const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString
 const capabilities = {
   'browser': 'chrome', 
   'browser_version': 'latest',
-  'os': 'osx',
-  'os_version': 'Big Sur',
+  'os': 'Windows',
+  'os_version': '11',
   'build': 'playwright-build-1',
   'client.playwrightVersion': clientPlaywrightVersion
 };

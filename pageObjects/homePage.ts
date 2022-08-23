@@ -12,11 +12,11 @@ export class HomePage {
     this.logo = page.locator('img[alt="Ensono"] >> nth=1');
     this.solutionsMenu = page.locator('#menu-item-207 >> text=Solutions');
     this.applicationConsolidationOptimization = page.locator('#menu-item-214 >> text=Application Consolidation + Optimization');
-    this.url='/solutions/application-consolidation-optimization/';
+    this.url='';
   }
 
   async goto() {
-    await this.page.goto('/');
+    await this.page.goto(this.url);
   }
 
   async gotoApplicationConsolidationOptimization() {

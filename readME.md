@@ -13,3 +13,7 @@
 BROWSERSTACK_USERNAME = 'some_username'
 BROWSERSTACK_ACCESS_KEY = 'some_key'
 ```
+
+## Debugging Commands
+
+`npx playwright codegen https://www.ensono.com`

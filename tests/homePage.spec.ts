@@ -1,28 +1,28 @@
 import { test } from '../fixtures/testFixture';
 import { expect } from '@playwright/test';
 import { HomePage } from '../pageObjects/homePage';
-import { markTestStatus } from '../utils/browserstack'
-let testStatus;
+import { ApplicationConsolidationOptimizationPage } from '../pageObjects/applicationConsolidationOptimizationPage';
+import { LetsConnectPage } from '../pageObjects/letsConnectPage';
 
 test.describe('homepage', () => {
 
-  // can we read the test name automatically?
-  test.use({ testName: 'somebody' });
   test('navigate menu', async ({ page }) => {
     const homePage = new HomePage(page);
     await homePage.goto();
 
     await expect(homePage.logo).toHaveAttribute('alt', 'Ensono');
     await homePage.gotoApplicationConsolidationOptimization();
+    
+    const applicationConsolidationOptimizationPage = new ApplicationConsolidationOptimizationPage(page);
 
-    await expect(page).toHaveURL(homePage.url);
-    await page.screenshot({ path: '/screenshots/screenshot.png', fullPage: true });
-  });
+    await expect(page).toHaveURL(applicationConsolidationOptimizationPage.url);
 
-  // can this be moved to a fixture?  
-  test.afterEach(async ({ page, browser }) => {
-    await markTestStatus(testStatus, page);
-    await page.close();
-    await browser.close();
+    await applicationConsolidationOptimizationPage.clickLetsConnect();
+    await expect(applicationConsolidationOptimizationPage.letsConnectButton.isVisible()).toBeTruthy();
+
+    await applicationConsolidationOptimizationPage.clickLetsConnect();
+
+    const letsConnectPage = new LetsConnectPage(page);
+    await expect(page).toHaveURL(letsConnectPage.url);
   });
 });

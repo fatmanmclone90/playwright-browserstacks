@@ -3,16 +3,6 @@ require('dotenv').config();
 const cp = require('child_process');
 const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString().trim().split(' ')[1];
 
-export async function markTestStatus( status, vPage ){
-  if (status = true) {
-    await vPage.evaluate(_ => {}, `browserstack_executor: ${JSON.stringify({action: 'setSessionStatus',arguments: {status: 'passed',reason: 'Test Passed'}})}`);
-  }
-  else if (status = null || false) {
-   await  vPage.evaluate(_ => {}, `browserstack_executor: ${JSON.stringify({action: 'setSessionStatus',arguments: {status: 'failed',reason: 'Test Failed'}})}`);
-
-  }
-}
-
 export async function instantiateBrowserstack( capabilities, testName ){
   capabilities['client.playwrightVersion'] = clientPlaywrightVersion;
   console.log(process.env.BROWSERSTACK_USERNAME, process.env.BROWSERSTACK_ACCESS_KEY, clientPlaywrightVersion)
